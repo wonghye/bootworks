@@ -9,5 +9,5 @@ public class SpringJpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJpaApplication.class, args);
 	}
-
+	// test 하면 데이터 리셋됨
 }

@@ -44,11 +44,12 @@ public class QueryMethodTest {
 		List<Board> boardList = boardRepo.findByTitle("테스트 제목10");
 		log.info("검색 결과");
 		for(Board board : boardList) {
-			log.info("-->" + board.toString());
+			log.info("--->" + board.toString());
 		}
 	}
 	*/
 	
+	/*
 	@Test
 	public void testFindByContentContaining() {
 		List<Board> boardList = boardRepo.findByContentContaining("17");
@@ -57,6 +58,32 @@ public class QueryMethodTest {
 			log.info("--->" + board.toString());
 		}
 	}
+	*/
+	
+	/*
+	@Test
+	public void testFindByTitleContainingOrContentContaining() {
+		List<Board> boardList = boardRepo.findByTitleContainingOrContentContaining("17", "18");
+		log.info("검색 결과"); 
+		for(Board board : boardList) {
+			log.info("--->" + board.toString());
+		}
+	}
+	*/
+	
+	@Test
+	public void testFindByTitleContainingOrderBySeqDesc() {
+		List<Board> boardList = boardRepo.findByTitleContainingOrderBySeqDesc("18");
+		log.info("검색 결과"); 
+		for(Board board : boardList) {
+			log.info("--->" + board.toString());
+		}
+	}
+	
+	
+	
+	
+	
 	
 	
 }
