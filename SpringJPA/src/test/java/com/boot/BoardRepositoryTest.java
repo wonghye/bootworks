@@ -19,19 +19,19 @@ public class BoardRepositoryTest {
 	@Autowired
 	private BoardRepository boardRepo;	//인터페이스형 객체임
 	
-	/*
+	
 	@Test
 	public void testInsertBoard() {
 		Board board = new Board();
-		board.setTitle("세 번째 게시글");
-		board.setWriter("테스터");
+		board.setTitle("첫 번째 게시글");
+		//board.setWriter("테스터");
 		board.setContent("등록이 잘 되나요?");
 		board.setCreateDate(new Date());
 		board.setCnt(0L);
 		
 		boardRepo.save(board);	// insert 기능(db에 저장)
 	}
-	*/
+	
 	
 	/*
 	//게시글 1개 보기
@@ -67,6 +67,7 @@ public class BoardRepositoryTest {
 	}
 	*/
 	
+	/*
 	//게시글 목록 보기
 	@Test
 	public void testBoardAll() {
@@ -75,5 +76,5 @@ public class BoardRepositoryTest {
 		for(Board board : boardList)
 			log.info(board.toString()); 
 	}
-	
+	*/
 }

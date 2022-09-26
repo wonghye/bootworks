@@ -7,6 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.boot.domain.Board;
 import com.boot.persistence.BoardRepository;
@@ -20,9 +24,10 @@ public class QueryMethodTest {
    @Autowired
    private BoardRepository boardRepo;
    
+   /*
    //데이터 200개 저장
    //@BeforeEach은 테스트 메소드가 실행되기 전에 동작
-   /*  @BeforeEach
+   @BeforeEach
    public void dataPrepare() {
       for(int i=1; i<=200; i++) {
          Board board = new Board();
@@ -35,8 +40,9 @@ public class QueryMethodTest {
          boardRepo.save(board);
       }
    }
+   */
    
-   
+  /*
    @Test
    public void testFindByTitle() {
       List<Board> boardList = boardRepo.findByTitle("테스트 제목 10");
@@ -44,8 +50,10 @@ public class QueryMethodTest {
       for(Board board : boardList) {
          log.info("--->" + board.toString());
       } 
-   }  */
+   }  
+  */
    
+   /*
    //글 제목에 특정 단어가 포함된 글 목록을 내림차순으로 조회
     @Test
    public void testFindByContentContaining() {
@@ -56,6 +64,7 @@ public class QueryMethodTest {
          log.info("--->" + board.toString());
       }
    }  
+   */
    
    /* @Test
    public void testFindByTitleContainingOrContentContaining() {
@@ -77,6 +86,31 @@ public class QueryMethodTest {
          log.info("--->" + board.toString());
       }
    } */
+   
+   @Test
+   public void testFindTitleContaining() {
+	   //0은 페이지 번호 1페이지 내림차순 정렬 
+	   Pageable paging = PageRequest.of(0, 10, Sort.Direction.DESC, "seq");
+	   
+	   //List<Board> boardList = boardRepo.findByTitleContaining("제목", paging);
+	   Page<Board> PageInfo = boardRepo.findByTitleContaining("제목", paging);
+	  
+	   System.out.println("PAGE SIZE: " + PageInfo.getSize());	//페이지당 게시글 수
+	   System.out.println("TOTAL PAGE : " + PageInfo.getTotalPages());	//전체 페이지 수 	
+	   System.out.println("TOTAL COUNT : " + PageInfo.getTotalElements());	// 전체 게시글 수
+	   System.out.println("NEXT : " + PageInfo.nextPageable());		//다음 페이지 수 
+	   
+	   List<Board> boardList = PageInfo.getContent();
+	   
+	   log.info("검색 결과");
+	      for(Board board : boardList) {
+	         log.info("--->" + board.toString());
+	      }
+   }
+   
+   
+   
+   
 }
 
 
