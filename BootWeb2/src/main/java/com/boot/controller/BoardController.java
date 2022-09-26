@@ -45,7 +45,7 @@ public class BoardController {
    //새글 등록
    @GetMapping("/insertBoard")
    public String insertBoard(@ModelAttribute("member") Member member) {
-	   if(member.getId() == null) {
+	   if(member.getId() == null) { 
 		   return "redirect:login";
 	   }else {
 		   return "insertBoard";	//board/insertboard
