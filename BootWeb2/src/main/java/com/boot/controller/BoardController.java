@@ -6,22 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.boot.domain.Board;
+import com.boot.domain.Member;
 import com.boot.service.BoardService;
 
+//member 를 자동으로 세션 저장
+@SessionAttributes("member")
 @Controller
 public class BoardController {
    
    @Autowired
    private BoardService service;
    
+   //인증 상태 유지하기
+ 	@ModelAttribute("member")
+ 	public Member setMember() {
+ 		return new Member();
+ 	}
+   
    @GetMapping("/hello")
    public void hello() {
       //return "hello";
    }
    
+   //목록보기
    @GetMapping("/getBoardList")
    public String getBoardList(Model model) {
       List<Board> boardList = service.getBoardList();
@@ -32,8 +44,12 @@ public class BoardController {
    
    //새글 등록
    @GetMapping("/insertBoard")
-   public String insertBoard() {
-	   return "insertBoard";	//board/insertboard
+   public String insertBoard(@ModelAttribute("member") Member member) {
+	   if(member.getId() == null) {
+		   return "redirect:login";
+	   }else {
+		   return "insertBoard";	//board/insertboard
+	   }
    }
    
    //새글 등록 처리
