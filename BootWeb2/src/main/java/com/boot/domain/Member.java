@@ -1,7 +1,10 @@
 package com.boot.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +23,8 @@ public class Member {
 	private String password;
 	private String name;
 	private String role;
+	
+	//일다다 관계 매핑
+	//@OneToMany
+	//private List<E>
 }

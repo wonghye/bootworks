@@ -6,12 +6,20 @@
 	<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+	<div th:replace="~{menu :: navbar}"></div>
+	<!-- <div th:replace="menu.html::nav"></div> -->
 	<div id="container">
 		<h2>메인 페이지 입니다.</h2>
-		<img src="/static/img/bear.jpg">
+		<img src="/static/img/bear.jpg" style="height: 400px;">
 		<p><a th:href="@{/login}">로그인 </a> &nbsp;&nbsp;
 		<a th:href="@{/getBoardList}">글 목록</a></p>
+		
+		<p>
+			<a href="boardError">BoardException 발생</a>&nbsp;&nbsp;
+			<a href="illegalArgumentError">illegalArgumentException 발생</a>&nbsp;&nbsp;
+			<a href="sqlError">SQLException 발생</a>
+		</p>
 	</div>
-
+	<div th:replace="~{footer :: foot}"></div>
 </body>
 </html>
