@@ -36,10 +36,12 @@ public class LoginController {
          model.addAttribute("member",findMember);
          return "redirect:getBoardList";
       }else {
-         return "redirect:login";
+    	  //에러 처리
+    	 int error = 1;
+    	 model.addAttribute("error", error);
+         return "login";
       }
    }
-   
    
    //로그아웃 처리
    /*
@@ -69,11 +71,28 @@ public class LoginController {
 	   return "redirect:login";
    }
    
-   //나의 정보 페이지 요청
-   @GetMapping("/mypage")
-   public String mypage() {
-	   return "mypage";
+   //회원 정보 처리
+   @GetMapping("/memberView")
+   public String view(String id, Model model) {
+	   Member member = service.getOne(id);
+	   model.addAttribute("member", member);	//member객체를 모델로 보냄
+	   return "memberView";		//memberView.html 로 이동
    }
+   
+   //회원 탈퇴
+   @GetMapping("/deleteMember")
+   public String delete(Member member) {
+	   service.delelte(member);
+	   return "redirect:";		// 인덱스로 이동
+   }
+   
+   //회원 수정 
+   @PostMapping("/updateMember")
+   public String updateMember(Member member) {
+       service.updateMember(member);
+       return "redirect:";
+    }
+   
    
    
    

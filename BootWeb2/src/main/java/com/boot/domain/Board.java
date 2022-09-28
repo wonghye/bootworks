@@ -18,7 +18,7 @@ import lombok.ToString;
 public class Board {
 	
 	@Id @GeneratedValue
-	private long seq;		//글번호
+	private Long seq;		//글번호
 	
 	private String title;	//글제목
 	
@@ -32,5 +32,5 @@ public class Board {
 	
 	@Column(insertable = false, updatable = false,
 			columnDefinition ="bigint default 0")
-	private long cnt;		//조회수
+	private Long cnt;		//조회수
 }

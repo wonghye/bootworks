@@ -3,6 +3,11 @@
 	<meta charset="utf-8">
 	<title>글쓰기</title>
 	<link rel="stylesheet" href="/static/css/style.css">
+<script type="text/javascript">
+//유효성 검사 - 공백 처리 안되게
+
+
+</script>
 </head>
 <body>
 	<div id="container">
@@ -12,7 +17,7 @@
 				<tbody>
 					<tr>
 						<td> 제목</td>
-						<td><input type="text" name="title"></td>
+						<td><input type="text" name="title" id="title" placeholder="제목"></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
@@ -21,12 +26,12 @@
 					<tr>
 						<td>내용</td>
 						<td>
-							<textarea rows="10" cols="50" name="content"></textarea>
+							<textarea rows="10" cols="50" name="content" id="content" placeholder="내용"></textarea>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<button type="submit">새글 등록</button>
+							<button type="submit">글쓰기</button>
 						</td>
 					</tr>
 				
@@ -35,6 +40,5 @@
 			</table>
 		</form>
 	</div>
-
 </body>
 </html>

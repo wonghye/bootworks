@@ -27,12 +27,13 @@ public class BoardController {
  	public Member setMember() {
  		return new Member();
  	}
-   
-   @GetMapping("/hello")
-   public void hello() {
-      //return "hello";
-   }
-   
+ 	
+   //index 페이지
+ 	@GetMapping("/")
+ 	public String index() {
+ 		return "index";		//index.html
+ 	}
+ 	
    //목록보기
    @GetMapping("/getBoardList")
    public String getBoardList(Model model) {

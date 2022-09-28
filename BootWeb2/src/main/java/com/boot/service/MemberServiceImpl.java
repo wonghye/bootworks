@@ -34,4 +34,29 @@ public class MemberServiceImpl implements MemberService {
 		memberRepo.save(member);
 	}
 
+	//회원 정보
+	@Override
+	public Member getOne(String id) {
+		return memberRepo.findById(id).get();
+	}
+	
+	//회원 삭제
+	@Override
+	public void delelte(Member member) {
+		memberRepo.delete(member);;
+	}
+	
+	//회원 수정
+	@Override
+	public void updateMember(Member member) {
+		memberRepo.save(member);
+	}
+
+	
+	
+	
+	
+	
+	
+	
 }

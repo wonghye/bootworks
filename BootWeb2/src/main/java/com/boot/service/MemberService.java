@@ -9,4 +9,13 @@ public interface MemberService {
    
    //회원가입
    void signup(Member member);
+   
+   //회원 정보
+   Member getOne(String id);
+   
+   //회원 탈퇴
+   void delelte(Member member);
+   
+   //회원 수정
+   void updateMember(Member member);
 }
