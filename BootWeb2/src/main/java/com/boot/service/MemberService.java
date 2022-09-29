@@ -10,6 +10,9 @@ public interface MemberService {
    //회원가입
    void signup(Member member);
    
+   //id 중복확인
+   int checkID(String id);
+   
    //회원 정보
    Member getOne(String id);
    
@@ -18,4 +21,5 @@ public interface MemberService {
    
    //회원 수정
    void updateMember(Member member);
+   
 }

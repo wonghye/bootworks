@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -78,6 +79,15 @@ public class LoginController {
 	   model.addAttribute("member", member);	//member객체를 모델로 보냄
 	   return "memberView";		//memberView.html 로 이동
    }
+   
+   //id 중복 확인
+   @GetMapping("/checkID")
+   @ResponseBody  //데이터 보내는 어노테이션
+   public int checkID(String id) {
+ 	   int result = service.checkID(id);
+	   return result;
+   }
+   
    
    //회원 탈퇴
    @GetMapping("/deleteMember")
