@@ -18,22 +18,24 @@ import lombok.ToString;
 @Getter
 @Entity
 public class Board {
-   @Id
-   @GeneratedValue
-   private Long seq;
-   private String title;
-   private String content;
-   
-   @Column(updatable = false,
-         columnDefinition = "timestamp DEFAULT CURRENT_TIMESTAMP")
-   private Date createDate;
-   
-   @Column(updatable = false,
-         columnDefinition = "bigint DEFAULT 0")
-   private Long cnt = 0L;
-   
-   //다대일 연관 매핑
-   @ManyToOne
-   @JoinColumn(name="MEMBER_ID", nullable=false, updatable=false)
-   private Member member;
+	@Id
+	@GeneratedValue
+	@Column(name="BOARD_ID")
+	private Long seq;
+	
+	private String title;
+	private String content;
+	
+	@Column(updatable = false,
+			columnDefinition = "timestamp DEFAULT CURRENT_TIMESTAMP")
+	private Date createDate;
+	
+	@Column(updatable = false,
+			columnDefinition = "bigint DEFAULT 0")
+	private Long cnt = 0L;
+	
+	//다대일 연관 매핑
+	@ManyToOne
+	@JoinColumn(name="MEMBER_ID", nullable=false, updatable=false) //외래키
+	private Member member;
 }

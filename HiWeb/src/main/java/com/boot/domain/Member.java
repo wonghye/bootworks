@@ -15,14 +15,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString(exclude = "boardList")
+@ToString(exclude="boardList")
 @Setter
 @Getter
 @Entity
 public class Member {
-
 	@Id
-	@Column(name="MEMBER_ID")//외래키 이름
+	@Column(name="MEMBER_ID") //외래키 이름
 	private String id;
 	
 	private String password;
@@ -33,9 +32,7 @@ public class Member {
 	
 	private boolean enabled;
 	
-	//연관 매핑 1 : 다
-	@OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+	//연관 매핑(1:다)
+	@OneToMany(mappedBy="member", fetch=FetchType.EAGER)
 	private List<Board> boardList = new ArrayList<>();
-	
-	
 }
