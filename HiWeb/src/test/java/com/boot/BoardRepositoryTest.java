@@ -30,7 +30,7 @@ public class BoardRepositoryTest {
 		Member member1 = new Member();
 		member1.setId("member");
 		member1.setPassword(pwencoder.encode("member12"));  //비밀번호 암호화
-		member1.setName("김기용");
+		member1.setName("최혜원");
 		member1.setRole(Role.ROLE_MEMBER);
 		member1.setEnabled(true);
 		memberRepo.save(member1);
@@ -105,7 +105,7 @@ public class BoardRepositoryTest {
 	}*/
 	
 	
-	
+	/*
 	//상세 조회 테스트 : 게시글을 통해서 회원 정보 조회
 	@Test
 	public void testGetBoard() {
@@ -131,19 +131,6 @@ public class BoardRepositoryTest {
 			System.out.println("--->" + board.toString());
 			
 	}
-	
+	*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
